@@ -1,0 +1,65 @@
+<div class="layout layout--col gap--large">
+    <!-- Bus Section -->
+    <div class="item">
+        <div class="meta"></div>
+        <div class="content">
+            {% if bus.size > 0 %}
+            <span class="value value--xlarge value--tnums">{{ bus[0].time }}</span>
+            <span class="label">Washington & 16th</span>
+            {% else %}
+            <span class="value value--large">No service</span>
+            <span class="label">Next 2 hours</span>
+            <span class="label">Washington & 16th</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Additional Bus Times -->
+    {% if bus.size > 1 %}
+    {% for departure in bus offset:1 limit:1 %}
+    <div class="item">
+        <div class="meta"></div>
+        <div class="content">
+            <span class="value value--medium value--tnums">{{ departure.time }}</span>
+            <span class="label label--small">Then</span>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Divider -->
+    <div class="w--full b-h-gray-5"></div>
+
+    <!-- Train Section -->
+    <div class="item">
+        <div class="meta"></div>
+        <div class="content">
+            {% if rail.size > 0 %}
+            <span class="value value--xlarge value--tnums">{{ rail[0].time }}</span>
+            <span class="label">JeffCo Gov Center</span>
+            {% else %}
+            <span class="value value--large">No service</span>
+            <span class="label">Next 2 hours</span>
+            <span class="label">JeffCo Gov Center</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Additional Train Times -->
+    {% if rail.size > 1 %}
+    {% for departure in rail offset:1 limit:1 %}
+    <div class="item">
+        <div class="meta"></div>
+        <div class="content">
+            <span class="value value--medium value--tnums">{{ departure.time }}</span>
+            <span class="label label--small">Then</span>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+<div class="title_bar">
+    <span class="title">RTD Transit</span>
+    <span class="instance">Updated {{ "now" | date: "%H:%M" }}</span>
+</div>

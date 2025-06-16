@@ -1,0 +1,18 @@
+<div class="layout layout--col gap--large">
+    <div class="item">
+        <div class="content">
+            <span class="value value--large">ENHANCED DEBUG:</span>
+            <span class="label">Bus exists: {{ bus | size }}</span>
+            <span class="label">Rail exists: {{ rail | size }}</span>
+            <span class="label">Bus array: {% for b in bus %}{{ b.time }}{% unless forloop.last %}, {% endunless %}{% endfor %}</span>
+            <span class="label">Rail array: {% for r in rail %}{{ r.time }}{% unless forloop.last %}, {% endunless %}{% endfor %}</span>
+            <span class="label">Bus[0]: {{ bus[0].time }}</span>
+            <span class="label">Rail[0]: {{ rail[0].time }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="title_bar">
+    <span class="title">Enhanced Debug</span>
+    <span class="instance">Data structure test</span>
+</div>
